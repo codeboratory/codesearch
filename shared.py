@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-CWD = "~/dev/spectoda-monorepo"
+CWD = "/Users/yamiteru/dev/spectoda-monorepo"
 
 client = chromadb.PersistentClient(path=f"{CWD}/.codesearch")
 
