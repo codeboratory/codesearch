@@ -14,6 +14,8 @@ from pathlib import Path
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+# TODO: investigate files that returned zero embeddings
+
 # TODO: get context (variable/function/type references) for each node
 # the referenes should be minimal so for example function reference will become just a function signature and constant reference with a big object will show its keys but will omit the values
 
