@@ -6,14 +6,7 @@ from config import default
 from shared import CWD
 
 
-def define_init(subparsers):
-    subparsers.add_parser(
-        "init",
-        help="Init a repo"
-    )
-
-
-def handle_init(args):
+def handle_init():
     path = f"{CWD}/codesearch.json"
 
     if os.path.exists(path):

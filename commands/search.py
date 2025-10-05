@@ -17,21 +17,7 @@ class Answer:
         return answer.score
 
 
-def define_search(subparsers):
-    search_parser = subparsers.add_parser(
-        "search",
-        help="Search indexed content"
-    )
-
-    search_parser.add_argument(
-        "query",
-        nargs="+",
-        help="Search query"
-    )
-
-
-def handle_search(args):
-    query = " ".join(args.query)
+def handle_search(query):
     query_tensors = batch_embed_query([query])
     results = collection.query(
         query_embeddings=query_tensors,

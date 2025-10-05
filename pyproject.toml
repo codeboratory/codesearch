@@ -8,6 +8,7 @@ dependencies = [
     "accelerate>=1.10.1",
     "argparse>=1.4.0",
     "chromadb>=1.1.0",
+    "click>=8.3.0",
     "einops>=0.8.1",
     "flash-attention>=1.0.0",
     "flask>=3.1.2",

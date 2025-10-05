@@ -6,20 +6,6 @@ from parser import parse_file
 from embed import batch_embed_passage
 
 
-def define_index(subparsers):
-    index_parser = subparsers.add_parser(
-        "index",
-        help="Index a directory"
-    )
-
-    index_parser.add_argument(
-        "-e", "--extensions",
-        nargs="+",
-        default=["ts"],
-        help="File extensions to index (default: ts)"
-    )
-
-
 def get_files(repo, extensions):
     files = repo.git.ls_files(
         '--cached',
@@ -31,10 +17,10 @@ def get_files(repo, extensions):
     return [file for file in files if file]
 
 
-def handle_index(args):
+def handle_index():
     repo = git.Repo(CWD, search_parent_directories=True)
     root = Path(repo.working_dir)
-    files = get_files(repo, args.extensions)
+    files = get_files(repo, ["ts", "tsx"])
 
     done = 0
     for file in files:

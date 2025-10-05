@@ -27,6 +27,7 @@ FILETYPES = {
     extension: language for language in LANGUAGES for extension in language.extensions
 }
 
+
 def parse_file(filename):
     filetype = filename.split(".")[-1]
     language = FILETYPES[filetype]

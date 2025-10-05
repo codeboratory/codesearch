@@ -3,8 +3,6 @@ import tree_sitter_typescript as ts_typescript
 from language import Language
 
 
-TAG_CONTENT = "content"
-
 NORMAL_DECLARATIONS = """
 [
     (function_declaration)
@@ -38,31 +36,31 @@ CLASS_DECLARATIONS = """
 
 EXPORT = f"""
 (program
-    (export_statement {NORMAL_DECLARATIONS}) @{TAG_CONTENT}
+    (export_statement {NORMAL_DECLARATIONS}) @content
 )
 """
 
 LOCAL = f"""
 (program
-    {NORMAL_DECLARATIONS} @{TAG_CONTENT}
+    {NORMAL_DECLARATIONS} @content
 )
 """
 
 BLOCK = f"""
 (statement_block
-    {NORMAL_DECLARATIONS} @{TAG_CONTENT}
+    {NORMAL_DECLARATIONS} @content
 )
 """
 
 OBJECT = f"""
 (object
-    (pair value: {FUNCTION_DECLARATIONS}) @{TAG_CONTENT}
+    (pair value: {FUNCTION_DECLARATIONS}) @content
 )
 """
 
 CLASS = f"""
 (class_body
-    {CLASS_DECLARATIONS} @{TAG_CONTENT}
+    {CLASS_DECLARATIONS} @content
 )
 """
 
