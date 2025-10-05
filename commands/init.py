@@ -14,4 +14,4 @@ def handle_init():
         return
 
     with open(path, "w") as file:
-        file.write(json.dumps(asdict(default)))
+        file.write(json.dumps(asdict(default), indent=4))
