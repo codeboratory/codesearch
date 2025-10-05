@@ -1,7 +1,7 @@
 import git
 
 from pathlib import Path
-from shared import collection
+from shared import collection, CWD
 from parser import parse_file
 from embed import batch_embed_passage
 
@@ -10,11 +10,6 @@ def define_index(subparsers):
     index_parser = subparsers.add_parser(
         "index",
         help="Index a directory"
-    )
-
-    index_parser.add_argument(
-        "path",
-        help="Path to index (e.g., ~/dev/spectoda-monorepo/)"
     )
 
     index_parser.add_argument(
@@ -37,7 +32,7 @@ def get_files(repo, extensions):
 
 
 def handle_index(args):
-    repo = git.Repo(args.path, search_parent_directories=True)
+    repo = git.Repo(CWD, search_parent_directories=True)
     root = Path(repo.working_dir)
     files = get_files(repo, args.extensions)
 
